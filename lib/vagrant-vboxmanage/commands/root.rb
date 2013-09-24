@@ -34,6 +34,7 @@ module VagrantPlugins
           with_target_vms(argv, single_target: true) do |machine|
             if machine.state.id == :not_created
               machine.env.ui.error("Target machine is not created, unable to run VBoxManage.")
+              return 1
             end
 
             if vboxmanage_commands_standard.include?(options[:command])
