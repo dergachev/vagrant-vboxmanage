@@ -42,6 +42,8 @@ Examples:
 * Only minimally tested.
 * TODO: support for UUID substitution for `SPECIAL_COMMANDS.txt` commands
 * TODO: show VBoxManage-like usage help.
+* On my system, running `vagrant -h` takes 3 seconds... 
+  which means this plugin introduces a 3 second lag over VBoxManage straight.
 
 ## Installation
 
