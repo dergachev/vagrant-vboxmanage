@@ -5,13 +5,13 @@ Vagrant plugin that simplifies calling `VBoxManage` on your Vagrant VM, by autom
 the machine uuid argument into the right spot. So instead of this:
 
 ```
-VBoxManage `cat .vagrant/machines/default/virtualbox/id` showvminfo
+VBoxManage showvminfo `cat .vagrant/machines/default/virtualbox/id` --details
 ```
 
 You can just do this:
 
 ```
-vagrant vboxmanage showvminfo
+vagrant vboxmanage showvminfo --details
 ```
 
 ## Usage
@@ -27,10 +27,13 @@ Where:
 
 For all VBoxManage commands except those listed in [SPECIAL_COMMANDS.txt](https://github.com/dergachev/vagrant-vboxmanage/blob/master/SPECIAL_COMMANDS.txt), the VM uuid will be inserted immediately after the command name. 
 
-For example:
+Examples:
 
-    # calls `VBoxManage showvminfo a0b76635-3c88-45ea-b26e-e9f442dc1f6e`
-    vagrant vboxmanage showvminfo --details    
+    # in case of a single VM environment
+    vagrant vboxmanage showvminfo --details
+    
+    # in case of multi-VM environment
+    vagrant vboxmanage mysql01 showvminfo  --details
 
 ## Caveats
 
