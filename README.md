@@ -1,6 +1,8 @@
 vagrant-vboxmanage
 ==================================
 
+[![Gem Version](https://badge.fury.io/rb/vagrant-vboxmanage.png)](http://badge.fury.io/rb/vagrant-vboxmanage)
+
 Vagrant plugin that simplifies calling `VBoxManage` on your Vagrant VM, by automatically injecting 
 the machine uuid argument into the right spot. So instead of this:
 
