@@ -6,7 +6,7 @@ BACKWARDS INCOMPATIBILITIES:
 
 FEATURES:
 
-  - Initial commit
+  - Initial release
 
 IMPROVEMENTS:
 
