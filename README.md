@@ -1,6 +1,18 @@
 vagrant-vboxmanage
 ==================================
-Vagrant plugin that simplifies calling `VBoxManage cmd UUID`
+
+Vagrant plugin that simplifies calling `VBoxManage` on your Vagrant VM, by automatically injecting 
+the machine uuid argument into the right spot. So instead of this:
+
+```
+VBoxManage showvminfo `cat .vagrant/machines/default/virtualbox/id` --details
+```
+
+You can just do this:
+
+```
+vagrant vboxmanage showvminfo --details
+```
 
 ## Usage
 
@@ -10,20 +22,23 @@ The following commands are added by this plugin:
 
 Where:
 
-* `<subcommand>` is the VBoxManage subcommand, eg `showvminfo` 
-  * See http://www.virtualbox.org/manual/ch08.html
+* `<subcommand>` is the [VBoxManage subcommand](http://www.virtualbox.org/manual/ch08.html), eg *showvminfo*
 * `[vm-name]` is the VM name; must be specified if multiple VMs are defined in Vagrantfile
 
-For all commands except those listed in `SPECIAL_COMMANDS.md`, the VM uuid will be inserted
-immediately after the command name. For example:
+For all VBoxManage commands except those listed in [SPECIAL_COMMANDS.txt](https://github.com/dergachev/vagrant-vboxmanage/blob/master/SPECIAL_COMMANDS.txt), the VM uuid will be inserted immediately after the command name. 
 
-    # calls `VBoxManage showvminfo a0b76635-3c88-45ea-b26e-e9f442dc1f6e`
-    vagrant vboxmanage showvminfo --details    
+Examples:
+
+    # in case of a single VM environment
+    vagrant vboxmanage showvminfo --details
+    
+    # in case of multi-VM environment
+    vagrant vboxmanage mysql01 showvminfo  --details
 
 ## Caveats
 
 * Only minimally tested.
-* TODO: support for UUID substitution for irregular commands like `guestproperty`.
+* TODO: support for UUID substitution for `SPECIAL_COMMANDS.txt` commands
 * TODO: show VBoxManage-like usage help.
 
 ## Installation
