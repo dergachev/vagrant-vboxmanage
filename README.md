@@ -1,6 +1,18 @@
 vagrant-vboxmanage
 ==================================
-Vagrant plugin that simplifies calling `VBoxManage cmd UUID`
+
+Vagrant plugin that simplifies calling `VBoxManage` on your Vagrant VM, by automatically injecting 
+the machine uuid argument into the right spot. So instead of this:
+
+```
+VBoxManage `cat .vagrant/machines/default/virtualbox/id` showvminfo
+```
+
+You can just do this:
+
+```
+vagrant vboxmanage showvminfo
+```
 
 ## Usage
 
@@ -13,8 +25,9 @@ Where:
 * `<subcommand>` is the [VBoxManage subcommand](http://www.virtualbox.org/manual/ch08.html), eg *showvminfo*
 * `[vm-name]` is the VM name; must be specified if multiple VMs are defined in Vagrantfile
 
-For all commands except those listed in `SPECIAL_COMMANDS.md`, the VM uuid will be inserted
-immediately after the command name. For example:
+For all VBoxManage commands except those listed in [SPECIAL_COMMANDS.txt](https://github.com/dergachev/vagrant-vboxmanage/blob/master/SPECIAL_COMMANDS.txt), the VM uuid will be inserted immediately after the command name. 
+
+For example:
 
     # calls `VBoxManage showvminfo a0b76635-3c88-45ea-b26e-e9f442dc1f6e`
     vagrant vboxmanage showvminfo --details    
@@ -22,7 +35,7 @@ immediately after the command name. For example:
 ## Caveats
 
 * Only minimally tested.
-* TODO: support for UUID substitution for irregular commands like `guestproperty`.
+* TODO: support for UUID substitution for `SPECIAL_COMMANDS.txt` commands
 * TODO: show VBoxManage-like usage help.
 
 ## Installation
