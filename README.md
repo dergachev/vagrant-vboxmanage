@@ -10,8 +10,7 @@ The following commands are added by this plugin:
 
 Where:
 
-* `<subcommand>` is the VBoxManage subcommand, eg `showvminfo` 
-  * See http://www.virtualbox.org/manual/ch08.html
+* `<subcommand>` is the [VBoxManage subcommand](http://www.virtualbox.org/manual/ch08.html), eg *showvminfo*
 * `[vm-name]` is the VM name; must be specified if multiple VMs are defined in Vagrantfile
 
 For all commands except those listed in `SPECIAL_COMMANDS.md`, the VM uuid will be inserted
